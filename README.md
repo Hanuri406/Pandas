@@ -35,11 +35,13 @@ df = pd.DataFrame(exam_data)
 
 <hr>
 
-* loc[rows,cols] / iloc[rows,cols]
+* extract items      
+  loc[rows,cols] / iloc[rows,cols]
 ```
 print(df.loc[0,'Math'])
 print(df.iloc[2,2])
 print(df.iloc[1:2,'PT':'Music'])
+print(df.iloc[:,'PT':'Music'])
 ```
 100    
 65
@@ -48,6 +50,28 @@ print(df.iloc[1:2,'PT':'Music'])
 |---|----|---|
 | 1 | 30   |  60 |
 | 2 |  65   |  10 |
+
+<hr>
+
+* insert items      
+  columns -> ['col']
+```
+df['English'] = [30,50,60]
+df.loc[6] = ["FFF",30,50,60]
+```
+
+|   | Name | Math | PT | Music | English |
+|---|-----|-----|-----|---|----|
+| 0 |  CCC |  100  |  40   |  30 | 30 |
+| 1 |  DDD |  50  |   30   |  60 | 50 |
+| 2 |  EEE |  30  |   65   |  10 | 60 |
+
+|   | Name | Math | PT | Music |
+|---|-----|-----|-----|---|
+| 0 |  CCC |  100  |  40   |  30 |
+| 1 |  DDD |  50  |   30   |  60 |
+| 2 |  EEE |  30  |   65   |  10 |
+| 6 |  FFF |  30  |   50   |  60 |
 
 <hr>
 
@@ -64,6 +88,3 @@ df.set_index('Name',inplace=True)
 | Name  |  |  |
 | CCC | 100  | 40 |
 | DDD | 50  |  30 |
-
-
-
