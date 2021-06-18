@@ -132,9 +132,5 @@ pd.pivot_table(df, index=, columns=, values=, aggfunc=)
 
 ```
 
-|   | Math | PT |
-|---|----|---|
-| 1 |  50  | 30 |
-| 0 |  100 | 40 |
-| 2 |  30  | 65 |
+
 
