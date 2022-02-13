@@ -2,18 +2,80 @@
 
 <hr>
 
-* DataFrame / index / columns             
+* DataFrame format
+
+```
+print(type(df))
+print(type(df['country']))
+print(type(df['country','year']))
+
+<class 'pandas.core.frame.DataFrame'>
+<class 'pandas.core.series.Series'>
+<class 'pandas.core.frame.DataFrame'>
+```
+```
+print(df.shape)
+(1704, 6)
+```
+```
+print(df.columns)
+Index(['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap'], dtype='object')
+```
+```
+print(df.dtypes)
+``` 
+|           |        |
+|-----------|--------|
+|country    |  object|
+|continent  |  object|
+|year       |   int64|
+|lifeExp    | float64|
+|pop        |   int64|
+|gdpPercap  | float64|
+
+dtype: object
+
+<hr>
+
+* Last row
+
+```
+df.iloc[-1]
+df.tail(n=1)
+df.iloc[df.shape[0]-1]
+``` 
+
+
+<hr>
+
+* DataFrame generation             
 
 ```
 df = pd.DataFrame([[15,"A","B"],[12,"C","D"]],
-      index=["1","2"],
+      index=["X","Y"],
       columns=["Age","Att","Class"])
 ```
 
 |   | Age | Att | Class |
 |---|-----|-----|-------|
-| 1 |  15 |  A  |   B   |
-| 2 |  12 |  C  |   D   |
+| X |  15 |  A  |   B   |
+| Y |  12 |  C  |   D   |
+
+```
+print(df.info())
+
+<class 'pandas.core.frame.DataFrame'>
+Index: 2 entries, X to Y
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   Age     2 non-null      int64 
+ 1   Att     2 non-null      object
+ 2   Class   2 non-null      object
+dtypes: int64(1), object(2)
+memory usage: 64.0+ bytes
+None
+```
 
 <hr>
 
