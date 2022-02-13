@@ -1,3 +1,129 @@
+# Series
+
+```
+print(pd.Series(['banana', 42]))
+```
+
+|index | data         |
+|--|---------|
+|0 |   banana|
+|1 |       42|
+
+dtype: object
+
+```
+pd.Series(['Wes McKinney', 'Creator of Pandas'], index=['Person', 'Who'])
+```
+
+|index | data         |
+|--|---------|
+|Person |   Wes McKinney|
+|Who |      Creator of Pandas|
+
+dtype: object
+
+<hr>
+
+|index | data         |
+|--|---------|
+|Occupation |  Statistician|
+|Born       |    1876-06-13|
+|Died       |    1937-10-16|
+|Age        |            61|
+
+```
+print(series.index) or print(series.keys())
+
+Index(['Occupation', 'Born', 'Died', 'Age'], dtype='object')
+```
+```
+print(series.values)
+
+['Statistician' '1876-06-13' '1937-10-16' 61]
+```
+```
+print(series.index[0])
+
+'Occupation'
+```
+
+<hr>
+
+# Series methods
+
+|method | description         |
+|--|---------|
+|append |  |
+|describe  | |
+|drop_duplicate  | |
+|equals  | |
+|isin  | |
+|min/max/median/mean/std  | |
+|replace  | |
+|sample  | |
+|sort_values  | |
+|to_frame  | |
+
+
+|index | data         |
+|--|---------|
+|A |  50|
+|B  | 60|
+|C  | 70|
+|D  | 80|
+|E  | 50|
+|F  | 60|
+|G  | 70|
+
+```
+print(df.mean(), df.max(), df.min(), df.std(), df.median())
+
+62.857142857142854 80 50 11.126972805283735 60.0
+```
+
+```
+print(df.drop_duplicates())
+```
+
+|index | data         |
+|--|---------|
+|A |  50|
+|B  | 60|
+|C  | 70|
+|D  | 80|
+
+
+
+# DataFrame & Series
+
+|                  | Occupation  |   Born    |   Died     | Age |
+|----|----|----|----|----|
+|Rosaline Franklin |     Chemist | 1920-07-25| 1958-04-16 | 37|
+|William Gosset    | Statistician| 1876-06-13| 1937-10-16 | 61|
+
+```
+print(scientists.loc['William Gosset'])
+```
+
+|index | data         |
+|--|---------|
+|Occupation |  Statistician|
+|Born       |    1876-06-13|
+|Died       |    1937-10-16|
+|Age        |            61|
+
+```
+print(scientists['Age'])
+```
+
+|index | data         |
+|--|---------|
+|Rosaline Franklin |   37|
+|William Gosset    |   61|
+
+Name: Age, dtype: int64
+
+
 # DataFrame
 
 <hr>
