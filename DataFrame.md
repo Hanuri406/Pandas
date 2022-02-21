@@ -71,7 +71,7 @@ Asia
 * Extraction - loc
 
 ```
-df.loc[:,['country','continent','year']]
+df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'] )
 df.iloc[:,range(2)]
 df.iloc[[0,1],[0,1]]
 ``` 
@@ -94,7 +94,7 @@ df.iloc[[0,1],[0,1]]
 | 1 |  Afghanistan |  Asia  |
 
 
-* Last row
+- Last row
 
 ```
 df.iloc[-1]
@@ -102,21 +102,33 @@ df.tail(n=1)
 df.iloc[df.shape[0]-1]
 ``` 
 
-
 <hr>
 
 * DataFrame generation             
 
 ```
-df = pd.DataFrame([[15,"A","B"],[12,"C","D"]],
-      index=["X","Y"],
-      columns=["Age","Att","Class"])
+scientists = pd.DataFrame({ 
+    'Name': ['Rosaline Franklin', 'William Gosset'], 
+    'Occupation': ['Chemist', 'Statistician'], 
+    'Born': ['1920-07-25', '1876-06-13'], 
+    'Died': ['1958-04-16', '1937-10-16'], 
+    'Age': [37, 61]}) 
+```
+```
+scientists = pd.DataFrame( 
+    data={'Occupation': ['Chemist', 'Statistician'], 
+          'Born': ['1920-07-25', '1876-06-13'], 
+          'Died': ['1958-04-16', '1937-10-16'],
+          'Age': [37, 61]},
+    index=['Rosaline Franklin', 'William Gosset'],
+    columns=['Occupation', 'Born', 'Age', 'Died']) 
 ```
 
-|   | Age | Att | Class |
-|---|-----|-----|-------|
-| X |  15 |  A  |   B   |
-| Y |  12 |  C  |   D   |
+|  | Name             |  Occupation  |     Born  |     Died   |Age  |
+|---|-----|-----|-----|---|---|
+|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 |
+|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 |
+
 
 ```
 print(df.info())
@@ -133,6 +145,19 @@ dtypes: int64(1), object(2)
 memory usage: 64.0+ bytes
 None
 ```
+
+
+
+* Group by
+
+
+
+* Boolean extraction
+
+mask = (df.Math > 50) // boolean indexing
+print(df[mask])
+
+
 
 <hr>
 
@@ -154,27 +179,9 @@ df = pd.DataFrame(exam_data)
 
 <hr>
 
-* extract items      
-  loc[rows,cols] / iloc[rows,cols]
-```
-print(df.loc[0,'Math'])
-print(df.iloc[2,2])
-print(df.iloc[1:2,'PT':'Music'])
-print(df.iloc[:,'PT':'Music'])
-mask = (df.Math > 50) // boolean indexing
-print(df[mask])
-```
-100    
-65
 
-|   | PT | Music |
-|---|----|---|
-| 1 | 30   |  60 |
-| 2 |  65   |  10 |
 
-|   | Name | Math | PT | Music |
-|---|-----|-----|-----|---|
-| 0 |  CCC |  100  |  40   |  30 |
+
 
 <hr>
 
