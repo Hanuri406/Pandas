@@ -4,7 +4,7 @@
 print(pd.Series(['banana', 42]))
 ```
 
-|index | data         |
+|index | values         |
 |--|---------|
 |0 |   banana|
 |1 |       42|
@@ -15,7 +15,7 @@ dtype: object
 pd.Series(['Wes McKinney', 'Creator of Pandas'], index=['Person', 'Who'])
 ```
 
-|index | data         |
+|index | values         |
 |--|---------|
 |Person |   Wes McKinney|
 |Who |      Creator of Pandas|
@@ -24,7 +24,7 @@ dtype: object
 
 <hr>
 
-|index | data         |
+|index | values         |
 |--|---------|
 |Occupation |  Statistician|
 |Born       |    1876-06-13|
@@ -65,7 +65,7 @@ print(series.index[0])
 |to_frame  | |
 
 
-|index | data         |
+|index | values         |
 |--|---------|
 |A |  50|
 |B  | 60|
@@ -85,7 +85,7 @@ print(df.mean(), df.max(), df.min(), df.std(), df.median())
 print(df.drop_duplicates())
 ```
 
-|index | data         |
+|index | values         |
 |--|---------|
 |A |  50|
 |B  | 60|
@@ -96,7 +96,7 @@ print(df.drop_duplicates())
 
 # DataFrame & Series
 
-|                  | Occupation  |   Born    |   Died     | Age |
+|          index        | Occupation  |   Born    |   Died     | Age |
 |----|----|----|----|----|
 |Rosaline Franklin |     Chemist | 1920-07-25| 1958-04-16 | 37|
 |William Gosset    | Statistician| 1876-06-13| 1937-10-16 | 61|
@@ -105,7 +105,7 @@ print(df.drop_duplicates())
 print(scientists.loc['William Gosset'])
 ```
 
-|index | data         |
+|index | values         |
 |--|---------|
 |Occupation |  Statistician|
 |Born       |    1876-06-13|
@@ -116,7 +116,7 @@ print(scientists.loc['William Gosset'])
 print(scientists['Age'])
 ```
 
-|index | data         |
+|index | values         |
 |--|---------|
 |Rosaline Franklin |   37|
 |William Gosset    |   61|
@@ -133,7 +133,7 @@ Name: Age, dtype: int64
 ```
 print(type(df))
 print(type(df['country']))
-print(type(df['country','year']))
+print(type(df[['country','year']]))
 
 <class 'pandas.core.frame.DataFrame'>
 <class 'pandas.core.series.Series'>
