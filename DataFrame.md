@@ -1,7 +1,5 @@
 # DataFrame
 
-<hr>
-
 * DataFrame format
 
 ```
@@ -37,7 +35,7 @@ dtype: object
 
 <hr>
 
-* Extraction - iloc
+# Extraction - iloc
 
 ```
 df.iloc[[0,1]] ( = df.iloc[[0,1],:] = df.iloc[range(2),:] )
@@ -68,7 +66,7 @@ Asia
 
 <hr>
 
-* Extraction - loc
+# Extraction - loc
 
 ```
 df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'] )
@@ -94,7 +92,7 @@ df.iloc[[0,1],[0,1]]
 | 1 |  Afghanistan |  Asia  |
 
 
-- Last row
+* Last row
 
 ```
 df.iloc[-1]
@@ -104,7 +102,7 @@ df.iloc[df.shape[0]-1]
 
 <hr>
 
-* DataFrame generation             
+# DataFrame generation             
 
 ```
 scientists = pd.DataFrame({ 
