@@ -125,6 +125,7 @@ scientists.loc['William Gosset'] ( = scientists.loc['William Gosset',:])
 |Born       |    1876-06-13|
 |Died       |    1937-10-16|
 |Age        |            61|
+
 Name: William Gosset, dtype: object
 
 ```
@@ -135,5 +136,6 @@ scientists['Age'] ( = scientists[:,'Age'])
 |--|---------|
 |Rosaline Franklin |   37|
 |William Gosset    |   61|
+
 Name: Age, dtype: int64
 
