@@ -112,6 +112,12 @@ scientists = pd.DataFrame({
     'Died': ['1958-04-16', '1937-10-16'], 
     'Age': [37, 61]}) 
 ```
+
+|  | Name             |  Occupation  |     Born  |     Died   |Age  |
+|---|-----|-----|-----|---|---|
+|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 |
+|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 |
+
 ```
 scientists = pd.DataFrame( 
     data={'Occupation': ['Chemist', 'Statistician'], 
@@ -122,10 +128,10 @@ scientists = pd.DataFrame(
     columns=['Occupation', 'Born', 'Age', 'Died']) 
 ```
 
-|  | Name             |  Occupation  |     Born  |     Died   |Age  |
-|---|-----|-----|-----|---|---|
-|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 |
-|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 |
+| index             |  Occupation  |     Born  |     Age | Died
+|-----|-----|-----|---|---|
+|Rosaline Franklin |     Chemist  | 1920-07-25| 37 | 1958-04-16 |
+|   William Gosset | Statistician | 1876-06-13| 61 | 1937-10-16 |
 
 
 ```
