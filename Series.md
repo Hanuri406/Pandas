@@ -22,32 +22,16 @@ pd.Series(['Wes McKinney', 'Creator of Pandas'], index=['Person', 'Who'])
 
 dtype: object
 
-<hr>
-
-|index | values         |
-|--|---------|
-|Occupation |  Statistician|
-|Born       |    1876-06-13|
-|Died       |    1937-10-16|
-|Age        |            61|
-
 ```
 print(series.index) or print(series.keys())
 
-Index(['Occupation', 'Born', 'Died', 'Age'], dtype='object')
+Index(['Person', 'Who'], dtype='object')
 ```
 ```
 print(series.values)
 
-['Statistician' '1876-06-13' '1937-10-16' 61]
+['Wes McKinney' 'Creator of Pandas']
 ```
-```
-print(series.index[0])
-
-'Occupation'
-```
-
-<hr>
 
 # Series methods
 
