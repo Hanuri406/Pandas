@@ -116,7 +116,7 @@ print(ages + ages) / print(ages + 100) / print(ages + pd.Series([1,2],index=[3,4
 |William Gosset    | Statistician| 1876-06-13| 1937-10-16 | 61|
 
 ```
-print(scientists.loc['William Gosset'])
+scientists.loc['William Gosset'] ( = scientists.loc['William Gosset',:])
 ```
 
 |index | values         |
@@ -125,15 +125,15 @@ print(scientists.loc['William Gosset'])
 |Born       |    1876-06-13|
 |Died       |    1937-10-16|
 |Age        |            61|
+Name: William Gosset, dtype: object
 
 ```
-print(scientists['Age'])
+scientists['Age'] ( = scientists[:,'Age'])
 ```
 
 |index | values         |
 |--|---------|
 |Rosaline Franklin |   37|
 |William Gosset    |   61|
-
 Name: Age, dtype: int64
 
