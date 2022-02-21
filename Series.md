@@ -92,9 +92,6 @@ print(df.drop_duplicates())
 |C  | 70|
 |D  | 80|
 
-
-<hr>
-
 # Series Boolean extraction
 
 ```
@@ -110,6 +107,22 @@ print(ages) / print(ages > ages.mean()) / print(ages[ages > ages.mean()])
 |5 |  45|    |5 |  False|    | |  |    
 |6 |  41|    |6 |  False|    | |  |    
 |7 |  77|    |7 |  True|     | |  |    
+
+# Series Operation
+
+```
+print(ages + ages) / print(ages + 100) / print(ages + pd.Series([1,2],index=[3,4]))
+```
+|index | values |  |index | values  |   |index | values |
+|--|---------|----|--|---------|---|--|---------|
+|0 |  74 |   |0 |  137 |   |0 |  NaN |
+|1 |  122|    |1 |  161|   |1 |  NaN| 
+|2 |  180|    |2 |  190|   |2 |  NaN| 
+|3 |  132|    |3 |  166|   |3 |  67.0| 
+|4 |  112|    |4 |  156|   |4 |  58.0|    
+|5 |  90|    |5 |  145|    |5 |  NaN|    
+|6 |  82|    |6 |  141|    |6 |  NaN|    
+|7 |  154|    |7 |  177|   |7 |  NaN|    
 
 # DataFrame & Series
 
