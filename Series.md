@@ -43,7 +43,7 @@ print(series.values)
 |equals  | |
 |isin  | |
 |value_counts | 빈도수 요약|
-|count | 누락되지 않은 값의 개수|
+|count | 누락되지 않은 값의 개수 / count(normalize=True)|
 |min/max/median/mean/std  | |
 |quantile|정확한 분위수 계산|
 |replace  | |
