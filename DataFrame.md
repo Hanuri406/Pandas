@@ -251,7 +251,7 @@ df.describe()
 * index        
 
 ```
-df.set_index(['Name','Math'],inplace=True)
+df.set_index(['Name','Math'],inplace=True) / df.index = ['Name','Math']
 df.reindex(new_list)
 df.reset_index()
 df.sort_index()
