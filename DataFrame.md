@@ -12,12 +12,25 @@ print(type(df[['country','year']]))
 <class 'pandas.core.frame.DataFrame'>
 ```
 ```
+print(type(df.index))
+print(type(df.columns))
+print(type(df.values))
+
+<class 'pandas.core.indexes.base.Index'>
+<class 'pandas.core.indexes.base.Index'>
+<class 'numpy.ndarray'>
+
+```
+```
 print(df.shape)
 (1704, 6)
 ```
 ```
 print(df.columns)
+print(df.columns.values)
+
 Index(['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap'], dtype='object')
+['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap']
 ```
 ```
 print(df.dtypes)
