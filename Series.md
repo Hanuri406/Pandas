@@ -50,6 +50,7 @@ print(series.values)
 |sample  | 임의의 값을 반환|
 |sort_values  | |
 |to_frame  | |
+|fillna/dropna  | 누락값을 바꿈/삭제|
 
 
 |index | values         |
