@@ -42,7 +42,10 @@ print(series.values)
 |drop_duplicate  | |
 |equals  | |
 |isin  | |
+|value_counts | 빈도수 요약|
+|count | 누락되지 않은 값의 개수|
 |min/max/median/mean/std  | |
+|quantile|정확한 분위수 계산|
 |replace  | |
 |sample  | 임의의 값을 반환|
 |sort_values  | |
@@ -76,6 +79,17 @@ print(df.drop_duplicates())
 |C  | 70|
 |D  | 80|
 
+```
+print(df.quantile([.1,.3,.5,.7,.9]))
+
+0.1    50.0
+0.3    58.0
+0.5    60.0
+0.7    70.0
+0.9    74.0
+dtype: float64
+
+```
 # Series Boolean extraction
 
 ```
