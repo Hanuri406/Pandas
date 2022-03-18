@@ -79,7 +79,7 @@ movie.filter(like='likes')
 movie[movie['color'].isnull()]
 ```
 
-| | | color | director_facebook_likes | ... |
+| | color | director_facebook_likes | 
 |---|-----|-----|
 |4|   NaN  |          Doug Walker|
 |276|    NaN |          Christopher Barnard|
