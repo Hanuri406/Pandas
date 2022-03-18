@@ -61,6 +61,17 @@ print(movie.sum(axis=1))
 |1    | 6.09e+08|
 | ... |  ... |
 
+```
+movie.nlargest(5,'movie_facebook_likes')
+```
+
+ |  | color |         director_name | ... | aspect_ratio  |movie_facebook_likes|
+|--|--|--|--|--|--|
+|96 | Color |     Christopher Nolan | ... |         2.35  |              349000|
+|293| Color |     Quentin Tarantino | ... |         2.35  |              199000|
+|10 | Color |           Zack Snyder | ... |         2.35  |              197000|
+|128| Color |         George Miller | ... |         2.35  |              191000|
+|178| Color | Alejandro G. Iñárritu | ... |         2.35  |              190000|
 
 
 # Extraction - Columns
