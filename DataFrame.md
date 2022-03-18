@@ -49,11 +49,13 @@ print(movie.sum())
 print(movie.sum(axis=1))
 ```
 
+|           |        |
 |-----------|--------|
 |num_critic_for_reviews     |   671592.0|
 |duration    | 524852.0|
 | ... |  ... |
 
+|           |        |
 |-----------|--------|
 |0   | 9.98e+08|
 |1    | 6.09e+08|
@@ -66,11 +68,23 @@ print(movie.sum(axis=1))
 ```
 movie.filter(like='likes')
 ```
+
 | |  director_facebook_likes |  movie_facebook_likes |
 |---|-----|-----|
 |0|                         0.0 |                 33000|
 |1|                      563.0  |                     0|
 |2|  ... | ... |
+
+```
+movie[movie['color'].isnull()]
+```
+
+| | | color | director_facebook_likes | ... |
+|---|-----|-----|
+|4|   NaN  |          Doug Walker|
+|276|    NaN |          Christopher Barnard|
+|453|  NaN  |  NaN |
+|...|  ... | ... |
 
 
 # Extraction - iloc
