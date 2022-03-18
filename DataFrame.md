@@ -3,34 +3,29 @@
 * DataFrame format
 
 ```
-print(type(df))
-print(type(df['country']))
-print(type(df[['country','year']]))
+type(df) or type(df[['color','director_name']])
+type(df['color'])
 
 <class 'pandas.core.frame.DataFrame'>
 <class 'pandas.core.series.Series'>
-<class 'pandas.core.frame.DataFrame'>
 ```
 ```
-print(type(df.index))
-print(type(df.columns))
-print(type(df.values))
+type(df.index) or type(df.columns)
+type(df.values)
 
-<class 'pandas.core.indexes.base.Index'>
 <class 'pandas.core.indexes.base.Index'>
 <class 'numpy.ndarray'>
-
 ```
 ```
-print(df.shape)
-(1704, 6)
+df.shape, df.size, df.ndim, len(df)
+(4916, 28) 137648 2 4916
 ```
 ```
 print(df.columns)
 print(df.columns.values)
 
-Index(['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap'], dtype='object')
-['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap']
+Index(['color', 'director_name', 'num_critic_for_reviews', 'duration',...])
+['color', 'director_name', 'num_critic_for_reviews', 'duration',...]
 ```
 ```
 print(df.dtypes)
@@ -47,6 +42,18 @@ print(df.dtypes)
 dtype: object
 
 <hr>
+
+# Extraction - Columns
+
+```
+movie.filter(like='likes')
+```
+| |  director_facebook_likes |  movie_facebook_likes |
+|---|-----|-----|
+|0|                         0.0 |                 33000|
+|1|                      563.0  |                     0|
+|2|  ... | ... |
+
 
 # Extraction - iloc
 
