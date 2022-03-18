@@ -21,8 +21,8 @@ df.shape, df.size, df.ndim, len(df)
 (4916, 28) 137648 2 4916
 ```
 ```
-print(df.columns)
-print(df.columns.values)
+df.columns
+df.columns.values
 
 Index(['color', 'director_name', 'num_critic_for_reviews', 'duration',...])
 ['color', 'director_name', 'num_critic_for_reviews', 'duration',...]
@@ -32,16 +32,34 @@ print(df.dtypes)
 ``` 
 |           |        |
 |-----------|--------|
-|country    |  object|
-|continent  |  object|
-|year       |   int64|
-|lifeExp    | float64|
-|pop        |   int64|
-|gdpPercap  | float64|
+|color    |  object|
+|director_name |  object|
+|num_critic_for_reviews     |   float64|
+|duration    | float64|
+| ... |  ... |
 
 dtype: object
 
 <hr>
+
+# Operations
+
+```
+print(movie.sum())
+print(movie.sum(axis=1))
+```
+
+|-----------|--------|
+|num_critic_for_reviews     |   671592.0|
+|duration    | 524852.0|
+| ... |  ... |
+
+|-----------|--------|
+|0   | 9.98e+08|
+|1    | 6.09e+08|
+| ... |  ... |
+
+
 
 # Extraction - Columns
 
