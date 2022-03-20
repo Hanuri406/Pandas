@@ -74,6 +74,19 @@ movie.nlargest(5,'movie_facebook_likes')
 |178| Color | Alejandro G. Iñárritu | ... |         2.35  |              190000|
 
 
+* Drop null values
+
+```
+movie['color'].dropna()
+```
+
+* Boolean extraction
+
+```
+mask = (df['Math'] > 50) // boolean indexing
+print(df[mask])
+```
+
 # Extraction - Columns
 
 ```
@@ -228,10 +241,7 @@ None
 
 
 
-* Boolean extraction
 
-mask = (df.Math > 50) // boolean indexing
-print(df[mask])
 
 
 
