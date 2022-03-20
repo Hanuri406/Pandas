@@ -111,7 +111,7 @@ movie[movie['color'].isnull()]
 |...|  ... | ... |
 
 
-# Extraction - iloc
+# Extraction - iloc[rows,columns] or iloc[rows]
 
 ```
 df.iloc[[0,1]] ( = df.iloc[[0,1],:] = df.iloc[range(2),:] )
@@ -140,7 +140,30 @@ df.iloc[0,1]
 Asia
 ``` 
 
+* Last row
+
+```
+df.iloc[-1]
+df.tail(n=1)
+df.iloc[df.shape[0]-1]
+``` 
+
+
 <hr>
+
+# Extraction - loc[rows,columns] or loc[rows]
+
+```
+df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'])
+df.loc['Scott Smith':'Daniel Hsia','color']
+``` 
+|   | country | continent | year |
+|---|-----|-----|-----|
+| 0 |  Afghanistan |  Asia  |  1952   |
+| 1 |  Afghanistan |  Asia  |  1959   |
+| 2 |  Afghanistan |  Asia  |  1962   |
+|...| ... | ... | ... |
+
 
 # Extraction - index
 
@@ -155,26 +178,6 @@ movie[['color','duration']] (=movie.loc[:,['color','duration']])
 movie['Adam Carolla':'Adam Green'] (=movie.loc['Adam Carolla':'Adam Green',:])
 ```
 
-# Extraction - loc[row,columns] or loc[row]
-
-```
-df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'])
-df.loc['Scott Smith':'Daniel Hsia','color']
-``` 
-|   | country | continent | year |
-|---|-----|-----|-----|
-| 0 |  Afghanistan |  Asia  |  1952   |
-| 1 |  Afghanistan |  Asia  |  1959   |
-| 2 |  Afghanistan |  Asia  |  1962   |
-|...| ... | ... | ... |
-
-* Last row
-
-```
-df.iloc[-1]
-df.tail(n=1)
-df.iloc[df.shape[0]-1]
-``` 
 
 # Extraction Scalar indexer - .iat[row, col], .at[row, col] (scalar index only)
 
