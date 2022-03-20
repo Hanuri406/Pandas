@@ -131,7 +131,12 @@ Asia
 
 # Extraction - index
 
+df[item]
+If item is a string or a string list, df.loc[:,item]
+Elseif item is slice df.loc[item,:]
+   
 movie[['color','duration']] (=movie.loc[:,['color','duration']])
+movie['Adam Carolla':'Adam Green'] (=movie.loc['Adam Carolla':'Adam Green',:])
 
 # Extraction - loc[row,columns] or loc[row]
 
@@ -152,6 +157,15 @@ df.loc['Scott Smith':'Daniel Hsia','color']
 df.iloc[-1]
 df.tail(n=1)
 df.iloc[df.shape[0]-1]
+``` 
+
+# Extraction Scalar indexer - .iat[row, col], .at[row, col] (scalar index only)
+
+``` 
+movie.iat[0,1]
+movie.iat[1,1]
+movie.iat[1,1:2](X)
+movie.at['Jon Gunn','color']
 ``` 
 
 <hr>
