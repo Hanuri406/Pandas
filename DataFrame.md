@@ -129,12 +129,15 @@ Asia
 
 <hr>
 
-# Extraction - loc
+# Extraction - index
+
+movie[['color','duration']] (=movie.loc[:,['color','duration']])
+
+# Extraction - loc[row,columns] or loc[row]
 
 ```
-df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'] )
-df.iloc[:,range(2)]
-df.iloc[[0,1],[0,1]]
+df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'])
+df.loc['Scott Smith':'Daniel Hsia','color']
 ``` 
 |   | country | continent | year |
 |---|-----|-----|-----|
@@ -142,18 +145,6 @@ df.iloc[[0,1],[0,1]]
 | 1 |  Afghanistan |  Asia  |  1959   |
 | 2 |  Afghanistan |  Asia  |  1962   |
 |...| ... | ... | ... |
-
-|   | country | continent | 
-|---|-----|-----|
-| 0 |  Afghanistan |  Asia  |
-| 1 |  Afghanistan |  Asia  |
-|...| ... | ... |
-
-|   | country | continent | 
-|---|-----|-----|
-| 0 |  Afghanistan |  Asia  |
-| 1 |  Afghanistan |  Asia  |
-
 
 * Last row
 
