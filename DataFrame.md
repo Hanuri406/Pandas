@@ -132,11 +132,15 @@ Asia
 # Extraction - index
 
 df[item]
+
 If item is a string or a string list, df.loc[:,item]
+
 Elseif item is slice df.loc[item,:]
-   
+
+```
 movie[['color','duration']] (=movie.loc[:,['color','duration']])
 movie['Adam Carolla':'Adam Green'] (=movie.loc['Adam Carolla':'Adam Green',:])
+```
 
 # Extraction - loc[row,columns] or loc[row]
 
