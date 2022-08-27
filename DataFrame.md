@@ -238,6 +238,7 @@ memory usage: 64.0+ bytes
 None
 ```
 
+pd.concat([series_1,series_2,...])
 
 
 * Group by
