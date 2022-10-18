@@ -1,5 +1,38 @@
 # DataFrame
 
+## Tips
+
+### Check the type of the result (Series? DataFrame?)
+
+```
+print(type(df.iloc[0,1]))
+<class 'str'>
+
+print(type(df.iloc[0,1:2]))
+<class 'pandas.core.series.Series'>
+
+print(type(df.iloc[0:3,1:2]))
+<class 'pandas.core.frame.DataFrame'>
+```
+### df[item] = df.loc[:,item] (item means column_index)
+
+```
+df.loc[:,['year']] = df[['year']] 
+```
+
+### df.loc[item] = df.loc[item,:] (item means row_index)
+
+```
+df.loc[0:3,:] = df.loc[0:3]
+```
+
+### list vs range
+
+```
+df.loc[0:3] (O) vs df.loc[[0:3]] (X)
+df.loc[0,1,2] (O) vs df.loc[[0,1,2]] (X)
+```
+
 ## Basics
 
 ### 1. Import pandas
@@ -114,6 +147,48 @@ df.loc[[0,9,99]]
 |99|Bangladesh|Asia|1967|43\.453|62821884|721\.1860862|
 
 
+### 4. Row & Column- loc[[row_indexs],[col_indexs]]
+
+```
+print(df.loc[[0,1,4],['country','year']])
+```
+
+|index|country|year|
+|---|---|---|
+|0|Afghanistan|1952|
+|1|Afghanistan|1957|
+|4|Afghanistan|1972|
+
+### 5. Range - df[['year']] = df.loc[:,['year']] or df.loc[0:3,:] = df.loc[0:3]
+
+```
+print(df.loc[0:3,['year']])
+```
+
+|index|year|
+|---|---|
+|0|1952|
+|1|1957|
+|2|1962|
+|3|1967|
+
+
+## Statistics
+
+### 1. groupby
+
+```
+df.groupby('year')['lifeExp','pop'].mean()
+```
+
+|year|lifeExp|pop|
+|---|---|---|
+|1952|49\.05761971830986|16950402\.46478873|
+|1957|51\.50740112676056|18763412\.53521127|
+|1962|53\.609249014084504|20421006\.85915493|
+|1967|55\.67828957746479|22658298\.478873238|
+|1972|57\.647386478873244|25189979\.985915493|
+...
 
 
 * DataFrame format
