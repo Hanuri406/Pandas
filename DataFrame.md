@@ -1,5 +1,121 @@
 # DataFrame
 
+## Basics
+
+### 1. Import pandas
+
+```
+import pandas as df
+df = pd.read_csv("gapminder.tsv",sep="\t")
+```
+
+### 2. Functions
+
+```
+df.head(5)
+```
+|index|country|continent|year|lifeExp|pop|gdpPercap|
+|---|---|---|---|---|---|---|
+|0|Afghanistan|Asia|1952|28\.801|8425333|779\.4453145|
+|1|Afghanistan|Asia|1957|30\.332|9240934|820\.8530296|
+|2|Afghanistan|Asia|1962|31\.997|10267083|853\.10071|
+|3|Afghanistan|Asia|1967|34\.02|11537966|836\.1971382|
+|4|Afghanistan|Asia|1972|36\.088|13079460|739\.9811058|
+
+```
+type(df) , df.shape
+<class 'pandas.core.frame.DataFrame'> , (1704, 6)
+
+df.columns
+Index(['country', 'continent', 'year', 'lifeExp', 'pop', 'gdpPercap'], dtype='object')
+```
+```
+df.dtypes
+```
+|  |  |
+|---|---|
+|country      | object|
+|continent    | object|
+|year         |  int64|
+|lifeExp      |float64|
+|pop          |  int64|
+|gdpPercap    |float64|
+|dtype: object|       |
+
+```
+df.info()
+```
+
+## Extraction
+
+### 1. Column - df[col_index] or df[[col_index1,col_index2...]]
+
+```
+country_df = df['country']
+print(type(country_df))
+<class 'pandas.core.series.Series'>
+```
+```
+country_df
+```
+|  |  |
+|---|---|
+|0    |  Afghanistan|
+|1    |  Afghanistan|
+|2    |  Afghanistan|
+|3    |  Afghanistan|
+|4    |  Afghanistan|
+|     |     ...     |
+
+Name: country, Length: 1704, dtype: object
+
+```
+subset = df[['country','year']]
+subset.head()
+```
+|index|country|year|
+|---|---|---|
+|0|Afghanistan|1952|
+|1|Afghanistan|1957|
+|2|Afghanistan|1962|
+|3|Afghanistan|1967|
+|4|Afghanistan|1972|
+
+### 2. Row - loc[row_index] or loc[[row_index1,row_index2]]
+
+```
+df.loc[[0,9,99]]
+```
+
+|index|country|continent|year|lifeExp|pop|gdpPercap|
+|---|---|---|---|---|---|---|
+|0|Afghanistan|Asia|1952|28\.801|8425333|779\.4453145|
+|9|Afghanistan|Asia|1997|41\.763|22227415|635\.341351|
+|99|Bangladesh|Asia|1967|43\.453|62821884|721\.1860862|
+
+```
+print(type(df.loc[0]))
+<class 'pandas.core.series.Series'>
+
+print(type(df.loc[[0,1]]))
+<class 'pandas.core.frame.DataFrame'>
+```
+
+### 3. Row - iloc[row_number] or iloc[[row_number1,row_number2]]
+
+```
+df.loc[[0,9,99]]
+```
+
+|index|country|continent|year|lifeExp|pop|gdpPercap|
+|---|---|---|---|---|---|---|
+|0|Afghanistan|Asia|1952|28\.801|8425333|779\.4453145|
+|9|Afghanistan|Asia|1997|41\.763|22227415|635\.341351|
+|99|Bangladesh|Asia|1967|43\.453|62821884|721\.1860862|
+
+
+
+
 * DataFrame format
 
 ```
