@@ -173,6 +173,30 @@ print(df.loc[0:3,['year']])
 |3|1967|
 
 
+### Condition
+
+```
+df[df['Age'] < df['Age'].mean()]
+```
+|I|Name|Born|Died|Age|Occupation|
+|---|---|---|---|---|---|
+|0|Rosaline|Franklin|1920-07-25|1958-04-16|37|Chemist|
+|4|Rachel|Carson|1907-05-27|1964-04-14|56|Biologist|
+|5|John|Snow|1813-03-15|1858-06-16|45|Physician|
+|6|Alan|Turing|1912-06-23|1954-06-07|41|Computer|Scientist|
+
+```
+df.loc[[False, True, True, False, True, False, True, False]]
+```
+|I|Name|Born|Died|Age|Occupation|
+|---|---|---|---|---|---|
+|1|William|Gosset|1876-06-13|1937-10-16|61|Statistician|
+|2|Florence|Nightingale|1820-05-12|1910-08-13|90|Nurse|
+|4|Rachel|Carson|1907-05-27|1964-04-14|56|Biologist|
+|6|Alan|Turing|1912-06-23|1954-06-07|41|Computer|Scientist|
+
+
+
 ## Statistics
 
 ### 1. groupby
@@ -339,35 +363,8 @@ df.tail(n=1)
 df.iloc[df.shape[0]-1]
 ``` 
 
-
 <hr>
 
-# Extraction - loc[rows,columns] or loc[rows]
-
-```
-df.loc[:,['country','continent','year']] ( = df.loc[:,'country':'year'])
-df.loc['Scott Smith':'Daniel Hsia','color']
-``` 
-|   | country | continent | year |
-|---|-----|-----|-----|
-| 0 |  Afghanistan |  Asia  |  1952   |
-| 1 |  Afghanistan |  Asia  |  1959   |
-| 2 |  Afghanistan |  Asia  |  1962   |
-|...| ... | ... | ... |
-
-
-# Extraction - index
-
-df[item]
-
-If item is a string or a string list, df.loc[:,item]
-
-Elseif item is slice df.loc[item,:]
-
-```
-movie[['color','duration']] (=movie.loc[:,['color','duration']])
-movie['Adam Carolla':'Adam Green'] (=movie.loc['Adam Carolla':'Adam Green',:])
-```
 
 
 # Extraction Scalar indexer - .iat[row, col], .at[row, col] (scalar index only)
@@ -539,5 +536,16 @@ pd.pivot_table(df, index=, columns=, values=, aggfunc=)
 
 ```
 
+
+|I|Name|Born|Died|Age|Occupation|
+|---|---|---|---|---|---|
+|0|Rosaline|Franklin|1920-07-25|1958-04-16|37|Chemist|
+|1|William|Gosset|1876-06-13|1937-10-16|61|Statistician|
+|2|Florence|Nightingale|1820-05-12|1910-08-13|90|Nurse|
+|3|Marie|Curie|1867-11-07|1934-07-04|66|Chemist|
+|4|Rachel|Carson|1907-05-27|1964-04-14|56|Biologist|
+|5|John|Snow|1813-03-15|1858-06-16|45|Physician|
+|6|Alan|Turing|1912-06-23|1954-06-07|41|Computer|Scientist|
+|7|Johann|Gauss|1777-04-30|1855-02-23|77|Mathematician|
 
 
