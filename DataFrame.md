@@ -181,7 +181,7 @@ print(df.loc[0:3,['year']])
 |3|1967|
 
 
-### Condition
+### 6. Condition
 
 ```
 df[df['Age'] < df['Age'].mean()]
@@ -202,6 +202,15 @@ df.loc[[False, True, True, False, True, False, True, False]]
 |2|Florence|Nightingale|1820-05-12|1910-08-13|90|Nurse|
 |4|Rachel|Carson|1907-05-27|1964-04-14|56|Biologist|
 |6|Alan|Turing|1912-06-23|1954-06-07|41|Computer|Scientist|
+
+### 7. Extraction Scalar indexer - .iat[row, col], .at[row, col] (scalar index only)
+
+``` 
+movie.iat[0,1]
+movie.iat[1,1]
+movie.iat[1,1:2](X)
+movie.at['Jon Gunn','color']
+``` 
 
 
 ## Manipulation 
@@ -253,7 +262,7 @@ scientists['ID'] = ['012','013']
 ### 3. Insert rows - data sholud be prepared for all columns
 
 ```
-scientists.set_index('Name',inplace=True)
+scientists.set_index('Name',inplace=True) 
 scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
 ```
 
@@ -268,6 +277,16 @@ scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
 
 pd.concat([series_1,series_2,...])
 
+### 5. Drop columns
+
+```
+scientists = scientists.drop(['Age'],axis=1)
+```
+
+|  | Name             |  Occupation  |     Born  |     Died   |
+|---|-----|-----|-----|---|
+|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 |
+|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 |
 
 
 ## Statistics
@@ -375,7 +394,7 @@ mask = (df['Math'] > 50) // boolean indexing
 print(df[mask])
 ```
 
-# Extraction - Columns
+## Filter
 
 ```
 movie.filter(like='likes')
@@ -399,54 +418,14 @@ movie[movie['color'].isnull()]
 |...|  ... | ... |
 
 
-# Extraction - iloc[rows,columns] or iloc[rows]
 
-```
-df.iloc[[0,1]] ( = df.iloc[[0,1],:] = df.iloc[range(2),:] )
-df.iloc[:,range(2)]
-df.iloc[[0,1],[0,1]]
-``` 
-|   | country | continent | year | ... |
-|---|-----|-----|-----|---|
-| 0 |  Afghanistan |  Asia  |  1952   |  ... |
-| 1 |  Afghanistan |  Asia  |  1959   |  ... |
+## Etc..
 
-|   | country | continent | 
-|---|-----|-----|
-| 0 |  Afghanistan |  Asia  |
-| 1 |  Afghanistan |  Asia  |
-|...| ... | ... |
-
-|   | country | continent | 
-|---|-----|-----|
-| 0 |  Afghanistan |  Asia  |
-| 1 |  Afghanistan |  Asia  |
-
-
-```
-df.iloc[0,1]
-Asia
-``` 
-
-* Last row
+### Last row
 
 ```
 df.iloc[-1]
 df.tail(n=1)
-df.iloc[df.shape[0]-1]
-``` 
-
-<hr>
-
-
-
-# Extraction Scalar indexer - .iat[row, col], .at[row, col] (scalar index only)
-
-``` 
-movie.iat[0,1]
-movie.iat[1,1]
-movie.iat[1,1:2](X)
-movie.at['Jon Gunn','color']
 ``` 
 
 <hr>
@@ -454,59 +433,6 @@ movie.at['Jon Gunn','color']
 
 
 
-* Group by
-
-
-
-
-
-
-
-<hr>
-
-* DataFrame / dictionary                 
-
-```
-exam_data = {'Name' : ["CCC","DDD","EEE"],
-             'Math' : [100,50,30],
-             'PT' : [40,30,65],
-             'Music' : [30,60,10]}
-df = pd.DataFrame(exam_data)
-```
-
-|   | Name | Math | PT | Music |
-|---|-----|-----|-----|---|
-| 0 |  CCC |  100  |  40   |  30 |
-| 1 |  DDD |  50  |   30   |  60 |
-| 2 |  EEE |  30  |   65   |  10 |
-
-<hr>
-
-
-
-
-
-<hr>
-
-* insert items      
-  columns -> ['col']
-```
-df['English'] = [30,50,60]
-df.loc[6] = ["FFF",30,50,60]
-```
-
-|   | Name | Math | PT | Music | English |
-|---|-----|-----|-----|---|----|
-| 0 |  CCC |  100  |  40   |  30 | 30 |
-| 1 |  DDD |  50  |   30   |  60 | 50 |
-| 2 |  EEE |  30  |   65   |  10 | 60 |
-
-|   | Name | Math | PT | Music |
-|---|-----|-----|-----|---|
-| 0 |  CCC |  100  |  40   |  30 |
-| 1 |  DDD |  50  |   30   |  60 |
-| 2 |  EEE |  30  |   65   |  10 |
-| 6 |  FFF |  30  |   50   |  60 |
 
 <hr>
 
@@ -529,7 +455,6 @@ df.describe()
 | 50%   |  50.000000 | 40.000000 | 30.000000 |
 | 75%   |  75.000000 | 52.500000 | 45.000000 |
 | max   | 100.000000 | 65.000000 | 60.000000 |                      
-
 
 
 <hr>
