@@ -33,6 +33,14 @@ df.loc[0:3] (O) vs df.loc[[0:3]] (X)
 df.loc[0,1,2] (O) vs df.loc[[0,1,2]] (X)
 ```
 
+### set_index with inplace
+
+```
+scientists.set_index('Name',inplace=True)
+scientists = scientists.set_index('Name')
+```
+
+
 ## Basics
 
 ### 1. Import pandas
@@ -194,6 +202,71 @@ df.loc[[False, True, True, False, True, False, True, False]]
 |2|Florence|Nightingale|1820-05-12|1910-08-13|90|Nurse|
 |4|Rachel|Carson|1907-05-27|1964-04-14|56|Biologist|
 |6|Alan|Turing|1912-06-23|1954-06-07|41|Computer|Scientist|
+
+
+## Manipulation 
+
+### 1. Generation
+
+```
+scientists = pd.DataFrame({ 
+    'Name': ['Rosaline Franklin', 'William Gosset'], 
+    'Occupation': ['Chemist', 'Statistician'], 
+    'Born': ['1920-07-25', '1876-06-13'], 
+    'Died': ['1958-04-16', '1937-10-16'], 
+    'Age': [37, 61]}) 
+```
+
+|  | Name             |  Occupation  |     Born  |     Died   |Age  |
+|---|-----|-----|-----|---|---|
+|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 |
+|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 |
+
+```
+scientists = pd.DataFrame( 
+    data={'Occupation': ['Chemist', 'Statistician'], 
+          'Born': ['1920-07-25', '1876-06-13'], 
+          'Died': ['1958-04-16', '1937-10-16'],
+          'Age': [37, 61]},
+    index=['Rosaline Franklin', 'William Gosset'],
+    columns=['Occupation', 'Born', 'Age', 'Died']) 
+```
+
+| index             |  Occupation  |     Born  |     Age | Died
+|-----|-----|-----|---|---|
+|Rosaline Franklin |     Chemist  | 1920-07-25| 37 | 1958-04-16 |
+|   William Gosset | Statistician | 1876-06-13| 61 | 1937-10-16 |
+
+
+### 2. Insert columns - data sholud be prepared for all rows
+
+```
+scientists['ID'] = ['012','013']
+```
+
+|  | Name             |  Occupation  |     Born  |     Died   |Age  | ID |
+|---|-----|-----|-----|---|---|---|
+|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 | 012 |
+|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 | 013 |
+
+
+### 3. Insert rows - data sholud be prepared for all columns
+
+```
+scientists.set_index('Name',inplace=True)
+scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
+```
+
+| index             |  Occupation  |     Born  |     Age | Died
+|-----|-----|-----|---|---|
+|Rosaline Franklin |     Chemist  | 1920-07-25| 37 | 1958-04-16 |
+|   William Gosset | Statistician | 1876-06-13| 61 | 1937-10-16 |
+| Kim|     Mage  | 1920-07-22| 37 | 1958-06-12 |
+
+
+### 4. Concatenation
+
+pd.concat([series_1,series_2,...])
 
 
 
@@ -378,55 +451,7 @@ movie.at['Jon Gunn','color']
 
 <hr>
 
-# DataFrame generation             
 
-```
-scientists = pd.DataFrame({ 
-    'Name': ['Rosaline Franklin', 'William Gosset'], 
-    'Occupation': ['Chemist', 'Statistician'], 
-    'Born': ['1920-07-25', '1876-06-13'], 
-    'Died': ['1958-04-16', '1937-10-16'], 
-    'Age': [37, 61]}) 
-```
-
-|  | Name             |  Occupation  |     Born  |     Died   |Age  |
-|---|-----|-----|-----|---|---|
-|0 |Rosaline Franklin |     Chemist  | 1920-07-25| 1958-04-16 | 37 |
-|1 |   William Gosset | Statistician | 1876-06-13| 1937-10-16 | 61 |
-
-```
-scientists = pd.DataFrame( 
-    data={'Occupation': ['Chemist', 'Statistician'], 
-          'Born': ['1920-07-25', '1876-06-13'], 
-          'Died': ['1958-04-16', '1937-10-16'],
-          'Age': [37, 61]},
-    index=['Rosaline Franklin', 'William Gosset'],
-    columns=['Occupation', 'Born', 'Age', 'Died']) 
-```
-
-| index             |  Occupation  |     Born  |     Age | Died
-|-----|-----|-----|---|---|
-|Rosaline Franklin |     Chemist  | 1920-07-25| 37 | 1958-04-16 |
-|   William Gosset | Statistician | 1876-06-13| 61 | 1937-10-16 |
-
-
-```
-print(df.info())
-
-<class 'pandas.core.frame.DataFrame'>
-Index: 2 entries, X to Y
-Data columns (total 3 columns):
- #   Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   Age     2 non-null      int64 
- 1   Att     2 non-null      object
- 2   Class   2 non-null      object
-dtypes: int64(1), object(2)
-memory usage: 64.0+ bytes
-None
-```
-
-pd.concat([series_1,series_2,...])
 
 
 * Group by
