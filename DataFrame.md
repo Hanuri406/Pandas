@@ -273,9 +273,10 @@ scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
 | Kim|     Mage  | 1920-07-22| 37 | 1958-06-12 |
 
 ```
-new_sr = 
-scientists.loc['Kim1'] = sr.values.tolist()
+newbie = pd.Series(['CS','1966-06-23','1946-02-01',20])
+scientists.loc['Newbie'] = newbie.values.tolist()
 ```
+
 ### 4. Concatenation
 
 pd.concat([series_1,series_2,...])
