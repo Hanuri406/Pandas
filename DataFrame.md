@@ -276,6 +276,7 @@ scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
 ### 4. Concatenation
 
 pd.concat([series_1,series_2,...])
+pd.concat([dataframe_1,dataframe_2,...])
 
 ### 5. Drop columns
 
