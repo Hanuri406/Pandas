@@ -272,10 +272,14 @@ scientists.loc['Kim'] = ['Mage','1920-07-22','1958-06-12',37]
 |   William Gosset | Statistician | 1876-06-13| 61 | 1937-10-16 |
 | Kim|     Mage  | 1920-07-22| 37 | 1958-06-12 |
 
-
+```
+new_sr = 
+scientists.loc['Kim1'] = sr.values.tolist()
+```
 ### 4. Concatenation
 
 pd.concat([series_1,series_2,...])
+
 pd.concat([dataframe_1,dataframe_2,...])
 
 ### 5. Drop columns
