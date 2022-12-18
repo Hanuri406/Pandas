@@ -65,16 +65,18 @@ scientists.loc['Newbie'] = newbie.values.tolist()
 ## 4. Concatenation
 
 ### df1 
-|A  |B  |C  |D  |
-|---|---|---|---|
-|a0 |b0 |c0 |d0 |
-|a1 |b1 |c1 |d1 |
+||A  |B  |C  |D  |
+|------|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |
+|1     |a1 |b1 |c1 |d1 |
+
 
 ### df2 
-|A  |B  |C  |D  |
-|---|---|---|---|
-|a2 |b2 |c2 |d2 |
-|a3 |b3 |c3 |d3 |
+||A  |B  |C  |D  |
+|------|---|---|---|---|
+|2     |a2 |b2 |c2 |d2 |
+|3     |a3 |b3 |c3 |d3 |
+
 
 ## Dataframe + Dataframe
 ```
@@ -82,12 +84,12 @@ df = pd.concat([df1,df2])
 ```
 
 ### df
-|A  |B  |C  |D  |
-|---|---|---|---|
-|a0 |b0 |c0 |d0 |
-|a1 |b1 |c1 |d1 |
-|a2 |b2 |c2 |d2 |
-|a3 |b3 |c3 |d3 |
+||A  |B  |C  |D  |
+|------|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |
+|1     |a1 |b1 |c1 |d1 |
+|2     |a2 |b2 |c2 |d2 |
+|3     |a3 |b3 |c3 |d3 |
 
 ## Dataframe + Series
 
@@ -96,7 +98,7 @@ new_row_series = pd.Series(['n1', 'n2', 'n3', 'n4'])
 df = pd.concat([df,new_row_series])
 ```
 
-|FIELD1|A  |B  |C  |D  |0  |
+||A  |B  |C  |D  |0  |
 |------|---|---|---|---|---|
 |0     |a0 |b0 |c0 |d0 |NaN|
 |1     |a1 |b1 |c1 |d1 |NaN|
@@ -107,8 +109,44 @@ df = pd.concat([df,new_row_series])
 |2     |NaN|NaN|NaN|NaN|n3 |
 |3     |NaN|NaN|NaN|NaN|n4 |
 
+```
+new_row_df = pd.DataFrame([new_row_series.tolist()],columns=df.columns)
+df = pd.concat([df,new_row_df])
+```
+
+||A  |B  |C  |D  |
+|------|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |
+|1     |a1 |b1 |c1 |d1 |
+|2     |a2 |b2 |c2 |d2 |
+|3     |a3 |b3 |c3 |d3 |
+|0     |n1 |n2 |n3 |n4 |
 
 pd.concat([dataframe_1,dataframe_2,...])
+
+## Column Direction  (axis=1)
+
+```
+df1.reset_index(drop=True, inplace=True)
+df2.reset_index(drop=True, inplace=True)
+df = pd.concat([df1,df2], axis=1)
+```
+|FIELD1|A  |B  |C  |D  |A  |B  |C  |D  |
+|------|---|---|---|---|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |a2 |b2 |c2 |d2 |
+|1     |a1 |b1 |c1 |d1 |a3 |b3 |c3 |d3 |
+
+## Insert Column
+```
+df['E'] = [1,2,3,4]
+```
+
+||A  |B  |C  |D  |E  |
+|------|---|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |1  |
+|1     |a1 |b1 |c1 |d1 |2  |
+|2     |a2 |b2 |c2 |d2 |3  |
+|3     |a3 |b3 |c3 |d3 |4  |
 
 ### 5. Drop columns
 
