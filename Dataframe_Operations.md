@@ -62,9 +62,51 @@ newbie = pd.Series(['CS','1966-06-23','1946-02-01',20])
 scientists.loc['Newbie'] = newbie.values.tolist()
 ```
 
-### 4. Concatenation
+## 4. Concatenation
 
-pd.concat([series_1,series_2,...])
+### df1 
+|A  |B  |C  |D  |
+|---|---|---|---|
+|a0 |b0 |c0 |d0 |
+|a1 |b1 |c1 |d1 |
+
+### df2 
+|A  |B  |C  |D  |
+|---|---|---|---|
+|a2 |b2 |c2 |d2 |
+|a3 |b3 |c3 |d3 |
+
+## Dataframe + Dataframe
+```
+df = pd.concat([df1,df2])
+```
+
+### df
+|A  |B  |C  |D  |
+|---|---|---|---|
+|a0 |b0 |c0 |d0 |
+|a1 |b1 |c1 |d1 |
+|a2 |b2 |c2 |d2 |
+|a3 |b3 |c3 |d3 |
+
+## Dataframe + Series
+
+```
+new_row_series = pd.Series(['n1', 'n2', 'n3', 'n4'])
+df = pd.concat([df,new_row_series])
+```
+
+|FIELD1|A  |B  |C  |D  |0  |
+|------|---|---|---|---|---|
+|0     |a0 |b0 |c0 |d0 |NaN|
+|1     |a1 |b1 |c1 |d1 |NaN|
+|2     |a2 |b2 |c2 |d2 |NaN|
+|3     |a3 |b3 |c3 |d3 |NaN|
+|0     |NaN|NaN|NaN|NaN|n1 |
+|1     |NaN|NaN|NaN|NaN|n2 |
+|2     |NaN|NaN|NaN|NaN|n3 |
+|3     |NaN|NaN|NaN|NaN|n4 |
+
 
 pd.concat([dataframe_1,dataframe_2,...])
 
