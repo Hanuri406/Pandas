@@ -1,6 +1,6 @@
 # Missing Data 
 
-## isnull()
+## 1. isnull()
 
 There is a special method to check NaN.
 NaN is neither True nor False.
@@ -14,13 +14,13 @@ print(pd.isnull(NaN))
 True
 ```
 
-## Count
+## 2. count
 
 ```
 print(np.count_nonzero(df.isnull())
 ```
 
-## fillna
+## 3. fillna
 
 ||A  |B  |C  |D  |
 |------|---|---|---|---|
@@ -29,7 +29,7 @@ print(np.count_nonzero(df.isnull())
 |2     |3 |NaN |NaN |NaN |
 |3     |4 |5 |6 |7 |
 
-### fillna(value)
+### 3-1. fillna(value)
 
 ```
 print(df.fillna(0))
@@ -42,7 +42,7 @@ print(df.fillna(0))
 |2     |3 |0 |0 |0 |
 |3     |4 |5 |6 |7 |
 
-### fillna(method='ffill' or 'bfill')
+### 3-2. fillna(method='ffill' or 'bfill')
 
 ```
 print(df.fillna(method='ffill'))
@@ -66,7 +66,7 @@ print(df.fillna(method='ffill'))
 |2     |3 |5 |6 |7 |
 |3     |4 |5 |6 |7 |
 
-### interpolate()
+### 3-3. interpolate()
 
 ```
 print(df.interpolate())
@@ -80,7 +80,7 @@ print(df.interpolate())
 |3     |4 |5 |6 |7 |
 
 
-### dropna()
+## 4. dropna()
 
 ```
 print(df.dropna())
@@ -92,7 +92,7 @@ print(df.dropna())
 |1     |2 |3 |4 |5 |
 |3     |4 |5 |6 |7 |
 
-### skipna option
+## 5. skipna option
 
 ```
 print(df.sum(skipna=False))
