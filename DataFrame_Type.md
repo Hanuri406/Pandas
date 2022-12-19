@@ -91,3 +91,25 @@ print(df.dropna())
 |0     |1 |2 |3 |4 |
 |1     |2 |3 |4 |5 |
 |3     |4 |5 |6 |7 |
+
+### skipna option
+
+```
+print(df.sum(skipna=False))
+
+A 10
+B NaN
+C NaN
+D NaN
+```
+
+```
+print(df.sum(skipna=True)) or print(df.sum())
+
+A 10
+B 10
+C 13
+D 16
+```
+
+
